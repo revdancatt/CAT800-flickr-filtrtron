@@ -1,5 +1,6 @@
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Flickr Filtrtron</title>
     <link href="css/main.css" rel="stylesheet">
 </head>
@@ -9,12 +10,54 @@
 
         <div class="hero">
             <h1>Flickr Filtrtron</h1>
+
+            <table class="filterResults">
+                <tr>
+                    <td>Filter</td>
+                    <td>Number</td>
+                </tr>
+            </table>
+
+            <div class="bigScores">
+                <div class="hasFilter"><div class="filter">has filter</div><div class="score"></div>
+                <div class="noFilter"><div class="filter">no filter</div><div class="score"></div>
+            </div>
+
+            <div class="others">
+                <div class="explanation">
+                    <h1><a name="others">Others</a></h1>
+                    <p>
+                        A whole bunch of photos have <em>machine tag</em> filter names that aren't
+                        in the US English Flickr App. Some of these because they were used in the
+                        early builds of the App, [alice], [cross process], [vintage] and so on.
+                    </p>
+                    <p>
+                        Others are translated versions of the filter names, such as camaleón, camaleão,
+                        caméléon and chamäleon for the chameleon filter. This makes is harder for us
+                        to work out the correct total number of photos with that filter applied without
+                        a bunch of faffing around.
+                    </p>
+                    <p>
+                        Fortunately future versions of the Flickr App should unify the filter names
+                        used for the machine tags, the visible translated names will stay as they are.
+                        So proportionally over time the significance of the following filters will
+                        reduce. 
+                    </p>
+
+                    <table class="otherResults">
+                        <tr>
+                            <td>Filter</td>
+                            <td>Number</td>
+                        </tr>
+                    </table>
+
+                </div>
         </div>
 
     </div>
 
     <script src="js/jquery-1.8.3.min.js"></script> 
-    <script src="js/control.js?v=1"></script> 
+    <script src="js/control.js?v=0.1"></script> 
 
     <script>
         $(document).ready(function() {

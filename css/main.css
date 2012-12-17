@@ -3,7 +3,52 @@ body {
 }
 
 .content {
-    width: 640px;
+    width: 480px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.filterResults,
+.otherResults {
+    width: 100%;
+}
+
+td.filter {
+    width: 30%;
+}
+
+td.score {
+    position: relative;
+    width: 70%;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.foreground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hasFilter,
+.noFilter {
+    width: 100%;
+}
+
+div.filter {
+    width: 40%;
+    float: left;
+}
+
+div.score {
+    width: 60%;
+    float: left;
 }
