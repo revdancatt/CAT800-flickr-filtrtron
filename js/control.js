@@ -149,10 +149,12 @@ control = {
                 $('<tr>')
                     .append($('<td>').addClass('filter').append($('<a>').attr('href', 'http://www.flickr.com/search/?q=flickriosapp%3Afilter%3D' + filter).html(filter)))
                     .append($('<td>').addClass('score')
-                        .append($('<div>').addClass('background').html('&nbsp;' + utils.addCommas(this.filters[filter]) + ' (' + percent + '%)'))
-                        .append($('<div>').addClass('foreground')
-                            .css('width', this.filters[filter] / maxScore * 100 + '%')
-                            .html('&nbsp;' + utils.addCommas(this.filters[filter]) + ' (' + percent + '%)'))
+                        .append($('<div>').addClass('firefoxHolder')
+                            .append($('<div>').addClass('background').html('&nbsp;' + utils.addCommas(this.filters[filter]) + ' (' + percent + '%)'))
+                            .append($('<div>').addClass('foreground')
+                                .css('width', this.filters[filter] / maxScore * 100 + '%')
+                                .html('&nbsp;' + utils.addCommas(this.filters[filter]) + ' (' + percent + '%)'))
+                        )
                     )
             );
         }
