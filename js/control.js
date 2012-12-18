@@ -147,12 +147,12 @@ control = {
 
             $('.filterResults').append(
                 $('<tr>')
-                    .append($('<td>').addClass('filter').html(filter))
+                    .append($('<td>').addClass('filter').append($('<a>').attr('href', 'http://www.flickr.com/search/?q=flickriosapp%3Afilter%3D' + filter).html(filter)))
                     .append($('<td>').addClass('score')
-                        .append($('<div>').addClass('background').html('&nbsp;' + this.filters[filter] + ' (' + percent + '%)'))
+                        .append($('<div>').addClass('background').html('&nbsp;' + utils.addCommas(this.filters[filter]) + ' (' + percent + '%)'))
                         .append($('<div>').addClass('foreground')
                             .css('width', this.filters[filter] / maxScore * 100 + '%')
-                            .html('&nbsp;' + this.filters[filter] + ' (' + percent + '%)'))
+                            .html('&nbsp;' + utils.addCommas(this.filters[filter]) + ' (' + percent + '%)'))
                     )
             );
         }
@@ -165,14 +165,14 @@ control = {
                         .append($('<a>').attr('href', '#others').text('*'))
                     )
                 )
-            .append($('<td>').addClass('score').html(this.other))
+            .append($('<td>').addClass('score').html(utils.addCommas(this.other)))
         );
 
         //  Now put the total for all filters and no filters
-        $('.hasFilter .score').html(parseInt((this.filter + this.other) / (this.filter + this.other + this.nofilter) * 1000, 10) / 10 + '% <small>(' + (this.filter + this.other) + ')</small><br />');
-        $('.noFilter .score').html( 100 - (parseInt((this.filter + this.other) / (this.filter + this.other + this.nofilter) * 1000, 10) / 10) + '% <small>(' + this.nofilter + ')<small>');
+        $('.hasFilter .score').html(parseInt((this.filter + this.other) / (this.filter + this.other + this.nofilter) * 1000, 10) / 10 + '% <small>(' + utils.addCommas(this.filter + this.other) + ')</small><br />');
+        $('.noFilter .score').html( 100 - (parseInt((this.filter + this.other) / (this.filter + this.other + this.nofilter) * 1000, 10) / 10) + '% <small>(' + utils.addCommas(this.nofilter) + ')<small>');
 
-        $('.total .score').html(this.filter + this.other + this.nofilter);
+        $('.total .score').html(utils.addCommas(this.filter + this.other + this.nofilter));
         
         //  And put all the "other" filters into the others table
         for (filter in this.others) {
@@ -182,10 +182,17 @@ control = {
             $('.otherResults').append(
                 $('<tr>')
                     .append($('<td>').addClass('filter').html(filter))
-                    .append($('<td>').addClass('score').html(this.others[filter]))
+                    .append($('<td>').addClass('score').html(utils.addCommas((this.others[filter]))))
             );
         }
 
+        $('.loading').fadeOut(666, function() {
+            $('.filterResults').fadeIn(666, function() {
+                $('.bigScores').fadeIn(666, function() {
+                    $('.others').fadeIn(666);
+                });
+            });
+        });
     }
 
 };
@@ -199,5 +206,18 @@ utils = {
         } catch(er) {
             //  nowt
         }
+    },
+
+    addCommas: function(nStr) {
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        return x1 + x2;
     }
+
 };

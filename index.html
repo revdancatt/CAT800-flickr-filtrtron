@@ -15,14 +15,24 @@
 
         <div>
 
-            <table class="filterResults">
+            <div class="loading">
+                <h2>Loading...</h2>
+                <p>
+                    Fetching filters from flickr.
+                </p>
+                <p>
+                    Note: Javascript needs to be enabled.
+                </p>
+            </div>
+
+            <table class="filterResults hidden">
                 <tr class="head">
                     <td>Filter</td>
                     <td>Number</td>
                 </tr>
             </table>
 
-            <div class="bigScores">
+            <div class="bigScores hidden">
                 <div class="holder">
                     <div class="hasFilter"><div class="filter">filter</div><div class="score"></div></div>
                     <div class="clearfix"></div>
@@ -33,7 +43,7 @@
                 <div class="credit">Photo by <a href="http://www.flickr.com/photos/kevincollins/8271346852">Kevin</a></div>
             </div>
 
-            <div class="others">
+            <div class="others hidden">
                 <div class="explanation">
                     <h2><a name="others">Others</a></h2>
                     <p>
@@ -65,6 +75,7 @@
         </div>
 
         <div class="footer">
+            Quick Flickr API hack by <a href="http://twitter.com/revdancatt">@revdancatt</a><br />
             Source code <a href="https://github.com/revdancatt/CAT800-flickr-filtrtron">on GitHub</a> (of course)
         </div>
 

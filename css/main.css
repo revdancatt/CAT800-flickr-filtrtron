@@ -8,6 +8,17 @@ body {
 
 a {
     text-decoration: none;
+    color: #CCF;
+}
+
+h2 a {
+    color: black;
+}
+
+.filterResults,
+.bigScores,
+.others {
+    display: none;
 }
 
 .content {
@@ -80,6 +91,10 @@ h2 {
 
 .filterResults tr {
     height: 2em;
+}
+
+.filterResults a {
+    color: #636383;
 }
 
 .head {
@@ -165,19 +180,26 @@ div.score {
     text-align: right;
 }
 
-.others {
+.others,
+.loading {
     width: 90%;
     margin-left: 5%;
+}
+
+.loading p {
+    margin-bottom: 4em;
 }
 
 .footer {
     width: 100%;
     font-size: 0.9em;
-    line-height: 5em;
+    line-height: 1.5em;
     background: #999;
     color: white;
     margin-top: 2em;
     text-align: center;
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
 }
 
 .credit {
@@ -188,6 +210,3 @@ div.score {
     font-weight: normal;
 }
 
-.credit a {
-    color: #CCF;
-}
