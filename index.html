@@ -9,23 +9,33 @@
     <div class="content">
 
         <div class="hero">
-            <h1>Flickr Filtrtron</h1>
+            <h1>Flickr<br />Filtrtron</h1>
+            <div class="credit">Photo by <a href="http://www.flickr.com/photos/kevincollins/8273691904">Kevin</a></div>
+        </div>
+
+        <div>
 
             <table class="filterResults">
-                <tr>
+                <tr class="head">
                     <td>Filter</td>
                     <td>Number</td>
                 </tr>
             </table>
 
             <div class="bigScores">
-                <div class="hasFilter"><div class="filter">has filter</div><div class="score"></div>
-                <div class="noFilter"><div class="filter">no filter</div><div class="score"></div>
+                <div class="holder">
+                    <div class="hasFilter"><div class="filter">filter</div><div class="score"></div></div>
+                    <div class="clearfix"></div>
+                    <div class="noFilter"><div class="filter">no filter</div><div class="score"></div></div>
+                    <div class="shovetotal"></div>
+                    <div class="total"><div class="filter">total</div><div class="score"></div></div>
+                </div>
+                <div class="credit">Photo by <a href="http://www.flickr.com/photos/kevincollins/8271346852">Kevin</a></div>
             </div>
 
             <div class="others">
                 <div class="explanation">
-                    <h1><a name="others">Others</a></h1>
+                    <h2><a name="others">Others</a></h2>
                     <p>
                         A whole bunch of photos have <em>machine tag</em> filter names that aren't
                         in the US English Flickr App. Some of these because they were used in the
@@ -45,13 +55,17 @@
                     </p>
 
                     <table class="otherResults">
-                        <tr>
+                        <tr class="head">
                             <td>Filter</td>
                             <td>Number</td>
                         </tr>
                     </table>
 
                 </div>
+        </div>
+
+        <div class="footer">
+            Source code <a href="https://github.com/revdancatt/CAT800-flickr-filtrtron">on GitHub</a> (of course)
         </div>
 
     </div>

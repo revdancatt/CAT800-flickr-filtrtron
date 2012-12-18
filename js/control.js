@@ -149,8 +149,10 @@ control = {
                 $('<tr>')
                     .append($('<td>').addClass('filter').html(filter))
                     .append($('<td>').addClass('score')
-                        .append($('<div>').addClass('background').html(this.filters[filter] + ' (' + percent + '%)'))
-                        .append($('<div>').addClass('foreground').html(this.filters[filter] + ' (' + percent + '%)'))
+                        .append($('<div>').addClass('background').html('&nbsp;' + this.filters[filter] + ' (' + percent + '%)'))
+                        .append($('<div>').addClass('foreground')
+                            .css('width', this.filters[filter] / maxScore * 100 + '%')
+                            .html('&nbsp;' + this.filters[filter] + ' (' + percent + '%)'))
                     )
             );
         }
@@ -167,10 +169,11 @@ control = {
         );
 
         //  Now put the total for all filters and no filters
-        $('.hasFilter .score').html((this.filter + this.other) + '(' + parseInt((this.filter + this.other) / (this.filter + this.other + this.nofilter) * 1000, 10) / 10 + '%)');
-        $('.noFilter .score').html(this.nofilter);
+        $('.hasFilter .score').html(parseInt((this.filter + this.other) / (this.filter + this.other + this.nofilter) * 1000, 10) / 10 + '% <small>(' + (this.filter + this.other) + ')</small><br />');
+        $('.noFilter .score').html( 100 - (parseInt((this.filter + this.other) / (this.filter + this.other + this.nofilter) * 1000, 10) / 10) + '% <small>(' + this.nofilter + ')<small>');
 
-
+        $('.total .score').html(this.filter + this.other + this.nofilter);
+        
         //  And put all the "other" filters into the others table
         for (filter in this.others) {
 
